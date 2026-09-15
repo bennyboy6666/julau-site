@@ -1,0 +1,271 @@
+/* ============================================================================
+   PINNAI — BLUEPRINT ATELIER · feuille de style canonique (drop-in)
+   ----------------------------------------------------------------------------
+   Source de vérité visuelle du brand PinnAI (site + produits).
+   Lignée : site pinnai-preview V11 (2026-04-19) → refonte Claude Design
+   (2026-06-20) → pilote « extraire & élever » (2026-07-06, référence figée
+   dans ./reference/). Doc complète : ../DESIGN.md · tokens machine-readable :
+   ./tokens.json · squelette : ./starter.html
+
+   USAGE
+   - <link rel="stylesheet" href="pinnai.css"> + IBM Plex (LOCAL en prod —
+     @fontsource/ibm-plex-serif|sans|mono ; CDN Google toléré en mockup only).
+   - Thème : <html data-theme="noir"> ou "atelier". App = noir par défaut,
+     site/landing = atelier par défaut. Toujours lire localStorage AVANT paint.
+   - RÈGLE DURE : consommer les variables — jamais un hex en dur.
+   ========================================================================== */
+
+/* ————————————————————————— 1. TOKENS ————————————————————————— */
+:root{
+  /* clair « atelier » — papier crème / encre marine / accent ROUILLE */
+  --paper:#F1EEE5; --paper-2:#E9E4D6; --paper-3:#DDD6C2;
+  --ink:#0E1A2B; --ink-2:#1E2E44; --ink-3:#4A5A72; --ink-4:#7A8599;
+  --line:#C4BBA4; --line-2:#A89E84;
+  --blue:#1F3E6E; --accent:#C8412A; --accent-2:#A8331F;
+  --ok:#6E8F5E; --warn:#B8791E; --err:#C45A3C;
+  --ok-soft:rgba(110,143,94,.14); --warn-soft:rgba(184,121,30,.14);
+  --err-soft:rgba(196,90,60,.13); --accent-soft:rgba(200,65,42,.10);
+  --grid-op:.06;                      /* app ; landing = .08 */
+  --f-serif:"IBM Plex Serif",Georgia,serif;
+  --f-sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+  --mx:1280px;                        /* max-width contenu site */
+  --mx-stream:760px;                  /* max-width colonne de lecture app */
+  --g:clamp(20px,4vw,48px);           /* gouttière */
+}
+html[data-theme="noir"] body{
+  /* sombre « noir » — navy / crème / accent AMBRE */
+  --paper:#0E1420; --paper-2:#18202E; --paper-3:#232D3E;
+  --ink:#F4EDDB; --ink-2:#D6CFBC; --ink-3:#A9B3C2; --ink-4:#7C8798;
+  --line:#3D4A5E; --line-2:#566578;
+  --blue:#8EC3F2; --accent:#F2B35A; --accent-2:#F6C478;
+  --ok:#8FAE78; --warn:#E0B14A; --err:#D98E73;
+  --ok-soft:rgba(143,174,120,.14); --warn-soft:rgba(224,177,74,.14);
+  --err-soft:rgba(217,142,115,.13); --accent-soft:rgba(242,179,90,.10);
+  --grid-op:.20;                      /* app ; landing = .32 */
+}
+
+/* ————————————————————————— 2. BASE ————————————————————————— */
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper); color:var(--ink);
+  /* GRAISSE DU TEXTE COURANT = 500 (Plex Medium), demande de Benoit du 2026-09-03 sur son Fold :
+     « le texte pas gras, une couple de points plus en direction du gras, partout dans l'interface,
+     menus compris ; que le gras reste distinctif ». Le gras monte donc d'un cran lui aussi
+     (strong 600, h4 600) pour garder l'écart d'un pas qui existait entre 400 et 500. Les titres
+     serif (h1 à h3) restent à 400 : registre d'affichage, pas du texte courant. */
+  font-family:var(--f-sans); font-size:15px; line-height:1.55; font-weight:500;
+  -webkit-font-smoothing:antialiased;
+  /* SIGNATURE · grille blueprint en filigrane */
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),
+                   linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:46px 46px; background-position:-1px -1px;
+  transition:background-color .35s,color .35s;
+}
+body::before{ /* atténuateur de grille (opacité pilotée par --grid-op) */
+  content:""; position:fixed; inset:0; background:var(--paper);
+  opacity:calc(1 - var(--grid-op)); pointer-events:none; z-index:-1;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+/* les contrôles portent la graisse du texte courant (menus déroulants, champs) : un `select` ou un
+   `input` ne l'hérite pas tout seul, il retombe sur le 400 du navigateur (mesuré le 2026-09-03) */
+select,input,textarea{font-weight:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+svg{display:block}
+/* icônes = SVG AU TRAIT (stroke 1.6–1.8, fill none) — jamais d'emoji */
+.ic{width:16px;height:16px;stroke:currentColor;stroke-width:1.6;fill:none;flex-shrink:0}
+
+/* ————————————————————————— 3. TYPO ————————————————————————— */
+h1,h2,h3,h4{font-family:var(--f-serif);font-weight:400;line-height:1.15;
+  letter-spacing:-.01em;margin:0 0 .4em}
+h1{font-size:clamp(34px,5vw,52px);line-height:1;letter-spacing:-.02em}
+h2{font-size:clamp(26px,3.6vw,38px)} h3{font-size:20px} h4{font-size:16px;font-weight:600}
+.hero-tt{font-size:clamp(42px,6.5vw,88px)}          /* titre géant landing */
+.em{font-style:italic;color:var(--accent)}          /* SIGNATURE · mot d'accent serif italique */
+p{margin:0 0 .9em} strong{color:var(--ink);font-weight:600}
+.sub{color:var(--ink-3);font-size:14.5px;max-width:52ch}
+.mono{font-family:var(--f-mono);letter-spacing:.02em}
+.muted{color:var(--ink-4)}
+.data{font-family:var(--f-mono);font-weight:600}    /* chronos, valeurs numériques */
+
+/* SIGNATURE · kicker mono uppercase + filet (sections numérotées 01/02…) */
+.kick{font-family:var(--f-mono);font-size:11px;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.14em;display:flex;align-items:center;
+  gap:12px;margin-bottom:14px}
+.kick::before{content:"";width:26px;height:1px;background:var(--accent)}
+/* label de groupe (nav, listes) : mono + filet qui court à droite */
+.lbl{font-family:var(--f-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--ink-4);display:flex;align-items:center;gap:10px;margin:0 0 8px}
+.lbl::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* ————————————————————————— 4. SIGNATURE · COINS-CROCHETS ——————————————— */
+/* Équerres en L aux 4 coins d'un cadre important (carte source, dialogue,
+   photo, encadré). Décoratif/structurant. 11px × 1.5px, couleur accent. */
+.hooks{position:relative}
+.hooks::before{
+  content:""; position:absolute; inset:-5px; pointer-events:none;
+  opacity:.5; color:var(--accent);
+  background-image:linear-gradient(currentColor,currentColor),linear-gradient(currentColor,currentColor),
+    linear-gradient(currentColor,currentColor),linear-gradient(currentColor,currentColor),
+    linear-gradient(currentColor,currentColor),linear-gradient(currentColor,currentColor),
+    linear-gradient(currentColor,currentColor),linear-gradient(currentColor,currentColor);
+  background-repeat:no-repeat;
+  background-size:11px 1.5px,1.5px 11px,11px 1.5px,1.5px 11px,
+                  11px 1.5px,1.5px 11px,11px 1.5px,1.5px 11px;
+  background-position:top left,top left,top right,top right,
+                      bottom left,bottom left,bottom right,bottom right;
+}
+
+/* ————————————————————————— 5. COMPOSANTS ————————————————————————— */
+/* Carte — silhouette nette (radius 0–2), bordure encre 1.5px, PAS d'ombre au
+   repos. SIGNATURE · ombre DURE au hover (jamais de flou mou). */
+.card{border:1.5px solid var(--ink);background:var(--paper);padding:18px;
+  border-radius:2px;transition:transform .14s,box-shadow .14s}
+.card:hover{transform:translateY(-2px);box-shadow:5px 5px 0 var(--line-2)}
+.card.static:hover{transform:none;box-shadow:none}   /* carte non interactive */
+
+/* Carte source (réponse citée) : .card + .hooks + ces éléments internes */
+.sc-n{position:absolute;top:12px;right:13px;font-family:var(--f-mono);font-size:10px;color:var(--accent)}
+.sc-ty{font-family:var(--f-mono);font-size:9.5px;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--ink-4);display:flex;align-items:center;gap:7px;margin-bottom:10px}
+.sc-ty .ic{width:13px;height:13px}
+.sc-ex{font-size:12px;color:var(--ink-3);line-height:1.5;margin:0 0 12px}
+.sc-dt{font-family:var(--f-mono);font-size:9.5px;color:var(--ink-4);
+  text-transform:uppercase;letter-spacing:.06em;padding-top:9px;border-top:1px dashed var(--line)}
+
+/* Boutons — rectangle 2px, mono uppercase. Primaire = encre pleine (accent au
+   hover) ; ghost = filet. Touch target ≥ 40px. */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:40px;padding:0 18px;border-radius:2px;
+  font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;
+  border:1.5px solid var(--ink);color:var(--ink);background:transparent;
+  transition:background .18s,color .18s,transform .14s,box-shadow .14s}
+.btn:hover{box-shadow:4px 4px 0 var(--line-2);transform:translateY(-1px)}
+.btn.b1{background:var(--ink);color:var(--paper)}
+.btn.b1:hover{background:var(--accent);border-color:var(--accent);box-shadow:4px 4px 0 var(--line-2)}
+html[data-theme="noir"] .btn.b1{color:#0E1420}
+.btn.sm{min-height:32px;padding:0 12px;font-size:11px}
+/* bouton-icône carré (toggle, haut-parleur, envoyer) */
+.icobtn{width:40px;height:40px;border:1px solid var(--line-2);display:grid;
+  place-items:center;color:var(--ink-3);border-radius:2px;
+  transition:border-color .16s,color .16s,background .16s}
+.icobtn:hover{border-color:var(--ink);color:var(--ink)}
+.icobtn.on{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+html[data-theme="noir"] .icobtn.on{color:#0E1420}
+.icobtn.fill{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.icobtn.fill:hover{background:var(--accent);border-color:var(--accent)}
+html[data-theme="noir"] .icobtn.fill{color:#0E1420}
+
+/* Chips / badges d'état — mono uppercase, bordure 1px, fond transparent ou soft */
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;
+  border:1px solid var(--line-2);border-radius:2px;
+  font-family:var(--f-mono);font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.06em;color:var(--ink-3)}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+.chip.ok{color:var(--ok);border-color:var(--ok);background:var(--ok-soft)}
+.chip.warn{color:var(--warn);border-color:var(--warn);background:var(--warn-soft)}
+.chip.err{color:var(--err);border-color:var(--err);background:var(--err-soft)}
+.chip.acc{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+
+/* Champs — cadre encre 1.5px ; focus = ombre dure accent (SIGNATURE) */
+.field{display:flex;align-items:center;gap:10px;border:1.5px solid var(--ink);
+  background:var(--paper);padding:8px 8px 8px 16px;border-radius:2px;
+  transition:box-shadow .18s,border-color .18s}
+.field:focus-within{box-shadow:4px 4px 0 var(--accent);border-color:var(--accent)}
+.field input,.field textarea{flex:1;border:none;background:none;color:var(--ink);
+  font-family:var(--f-sans);font-size:15px;outline:none;min-width:0}
+.field ::placeholder{color:var(--ink-4)}
+
+/* Bloc question / citation — filet accent à gauche, serif italique */
+.q{border-left:2px solid var(--accent);padding:2px 0 2px 18px;margin:0 0 26px}
+.q .ql{font-family:var(--f-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--ink-4);margin-bottom:6px}
+.q p{font-family:var(--f-serif);font-style:italic;font-size:clamp(20px,2.4vw,26px);
+  line-height:1.3;margin:0;color:var(--ink)}
+/* pull-quote éditorial (filets haut/bas) */
+.pull{font-family:var(--f-serif);font-style:italic;font-size:19px;line-height:1.45;
+  color:var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:16px 0;margin:22px 0}
+/* renvoi de citation [1] */
+.cref{font-family:var(--f-mono);font-size:.68em;color:var(--accent);
+  vertical-align:super;padding:0 1px;font-weight:500;cursor:pointer}
+
+/* ————————————————————————— 6. SHELL APP ————————————————————————— */
+.app{display:grid;grid-template-columns:248px 1fr;min-height:100vh}
+.side{border-right:1px solid var(--line-2);
+  background:color-mix(in srgb,var(--paper) 82%,transparent);backdrop-filter:blur(6px);
+  padding:22px 16px;display:flex;flex-direction:column;gap:26px;
+  position:sticky;top:0;height:100vh}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--f-serif);
+  font-weight:500;font-size:20px;letter-spacing:-.01em}
+.brand .mk{width:30px;height:30px;border:1.5px solid var(--ink);display:grid;
+  place-items:center;font-style:italic;font-size:16px;border-radius:2px}
+.nav-g{display:flex;flex-direction:column;gap:2px}
+.na{position:relative;display:flex;align-items:center;gap:11px;padding:8px 10px;
+  border-radius:2px;color:var(--ink-2);font-size:13.5px;border:1px solid transparent;
+  transition:background .15s,color .15s,border-color .15s}
+.na:hover{background:var(--paper-2);color:var(--ink)}
+.na.on{color:var(--ink);border-color:var(--line-2);background:var(--paper-2)}
+.na.on::before{content:"";position:absolute;left:0;width:2px;height:20px;background:var(--accent)}
+.nav-g.maint .na{color:var(--ink-4);font-size:12.5px}   /* 2e étage discret */
+.side-foot{margin-top:auto;font-family:var(--f-mono);font-size:10px;color:var(--ink-4);
+  text-transform:uppercase;letter-spacing:.08em;border-top:1px solid var(--line);
+  padding-top:14px;display:flex;align-items:center;gap:8px}
+.side-foot .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
+
+.main{display:flex;flex-direction:column;min-height:100vh;min-width:0}
+.top{height:60px;border-bottom:1px solid var(--line-2);display:flex;align-items:center;
+  justify-content:space-between;padding:0 var(--g);position:sticky;top:0;z-index:20;
+  background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(8px)}
+.scope{display:flex;align-items:center;gap:10px;font-family:var(--f-mono);
+  font-size:11.5px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em}
+.scope b{color:var(--ink);font-weight:500}
+.scope .sep{color:var(--line-2)} .scope .pj{color:var(--accent)}
+.stream{flex:1;overflow-y:auto;padding:clamp(26px,3.5vw,52px) var(--g) 24px}
+.stream-in{max-width:var(--mx-stream);margin:0 auto}
+/* barre de commande collée au bas */
+.cmd{border-top:1px solid var(--line-2);padding:16px var(--g) 22px;
+  background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px)}
+.cmd .field{max-width:var(--mx-stream);margin:0 auto}
+.cmd-hint{max-width:var(--mx-stream);margin:10px auto 0;font-family:var(--f-mono);
+  font-size:10px;color:var(--ink-4);text-transform:uppercase;letter-spacing:.07em;
+  display:flex;justify-content:space-between;gap:12px}
+
+/* toggle thème soleil/lune (SIGNATURE) */
+.tglt{width:38px;height:38px;border:1px solid var(--line-2);display:grid;
+  place-items:center;color:var(--ink);border-radius:2px;position:relative;
+  transition:border-color .18s,color .18s}
+.tglt:hover{border-color:var(--ink);color:var(--accent)}
+.tglt svg{width:17px;height:17px;stroke:currentColor;stroke-width:1.8;fill:none;
+  position:absolute;transition:transform .45s cubic-bezier(.6,.1,.3,1),opacity .3s}
+.tglt .sun{opacity:1} .tglt .moon{opacity:0;transform:rotate(90deg) scale(.6)}
+html[data-theme="noir"] .tglt .sun{opacity:0;transform:rotate(-90deg) scale(.6)}
+html[data-theme="noir"] .tglt .moon{opacity:1;transform:none}
+
+/* ————————————————————————— 7. LAYOUT SITE ————————————————————————— */
+.wrap{max-width:var(--mx);margin:0 auto;padding:0 var(--g)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:860px){.grid-3{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}}
+.hr-d{border:none;border-top:1px dashed var(--line);margin:22px 0}  /* filet tireté */
+
+/* ————————————————————————— 8. MOTION ————————————————————————— */
+/* reveal-on-scroll : .rv + IntersectionObserver ajoute .in (seuil .12) */
+.rv{opacity:0;transform:translateY(12px);
+  transition:opacity .6s ease,transform .6s cubic-bezier(.2,.6,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}
+.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+.live{display:inline-flex;align-items:center;gap:6px}
+.live::before{content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 7px var(--accent);animation:blink 1.8s infinite}
+
+/* ————————————————————————— 9. RESPONSIVE ————————————————————————— */
+@media(max-width:860px){
+  .app{grid-template-columns:1fr}
+  .side{display:none}   /* remplacer par un drawer/burger dans un vrai produit */
+}
