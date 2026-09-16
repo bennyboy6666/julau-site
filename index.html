@@ -1,73 +1,103 @@
 <!doctype html>
-<html lang="fr-CA" data-theme="atelier"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Julau Conseil · IA · Automatisation des processus · PME du Québec</title>
-<meta name="description" content="Julau Conseil inc. Benoit Gagné, ing. Audit des processus, formation IA, outils connectés, modules ERP, mémoire d'entreprise. Conforme à la Loi 25. Beloeil (Québec).">
-<link rel="stylesheet" href="fonts.css">
-<link rel="stylesheet" href="pinnai.css">
+<html lang="fr" data-theme="noir"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Julau Conseil · IA et automatisation des processus</title>
+<meta name="description" content="Julau Conseil : audit et automatisation des processus, formation IA, outils connectés, modules ERP (Odoo, Zoho) et coordination de production pour les PME du Québec. Vos données sous votre contrôle. Réserver 15 minutes.">
+<link rel="alternate" hreflang="fr" href="https://julau.ai/">
+<link rel="alternate" hreflang="x-default" href="https://julau.ai/">
+<link rel="stylesheet" href="fonts.css"><link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="v13-anim.css">
+<script>(function(){try{var t=localStorage.getItem('julau-theme');document.documentElement.setAttribute('data-theme',(t==='noir'||t==='atelier')?t:'noir')}catch(_){document.documentElement.setAttribute('data-theme','noir')}})();</script>
 <style>
-  /* Page d'attente : la carte d'affaires, en ligne. Tokens de pinnai.css seulement. */
-  body{background:var(--paper);color:var(--ink)}
-  .page{max-width:880px;margin:0 auto;padding:44px 20px 56px}
-  .brand-row{display:flex;align-items:center;gap:14px;margin-bottom:38px}
-  .mark{width:44px;height:44px;flex:none}
-  .mark text{font-family:var(--f-serif);font-weight:700;fill:var(--ink)}
-  .mark rect{fill:var(--accent)}
-  .brand-name{font-family:var(--f-serif);font-size:24px;letter-spacing:.01em}
-  .kick{margin-bottom:22px}
-  h1{font-size:clamp(30px,5vw,46px);margin:0 0 18px;max-width:22ch}
-  .lead{font-size:17px;line-height:1.55;max-width:58ch;color:var(--ink-2);margin:0 0 42px}
-  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 44px}
-  .tile{display:flex;align-items:center;gap:12px;padding:14px 14px;border:1px solid var(--paper-3);background:var(--paper)}
-  .tile svg{width:22px;height:22px;flex:none;fill:none;stroke:var(--accent);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-  .tile .lb{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink)}
-  .who{display:grid;grid-template-columns:1fr;gap:6px;margin:0 0 40px;padding:22px 24px;border:1.5px solid var(--ink);background:var(--paper);position:relative}
-  .who .nm{font-family:var(--f-serif);font-size:24px}
-  .who .rl{color:var(--ink-3);font-size:15px}
-  .who .rl b{color:var(--ink);font-weight:600}
-  .cta{display:inline-block;padding:14px 22px;background:var(--accent);color:var(--paper);font-family:var(--f-sans);font-weight:600;text-decoration:none;box-shadow:5px 5px 0 var(--ink);min-height:44px;box-sizing:border-box}
-  .cta:hover{background:var(--accent-2)}
-  .contact{margin-top:18px;font-family:var(--f-mono);font-size:12.5px;color:var(--ink-3);line-height:1.9}
-  .contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--paper-3)}
-  .foot{margin-top:54px;font-family:var(--f-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4)}
-  @media (max-width:640px){.tiles{grid-template-columns:1fr 1fr}.page{padding:30px 16px 44px}}
-  @media (max-width:400px){.tiles{grid-template-columns:1fr}}
+/* v13 · la version simple (COMMENTAIRES-BENOIT-2026-09-15.md) : hero tranché, sept tuiles égales, le fond, qui, réserver. */
+.sv p{font-size:14.5px}
+section{padding:clamp(56px,7vw,92px) 0}
+.sept .sv{padding:22px 22px 20px}
+.sept .sv h3{font-size:19px;margin-bottom:8px}
+.fp{width:180px;height:180px}@media(max-width:640px){.fp{width:150px;height:150px}}
+@media(min-width:641px){.f{grid-template-columns:180px 1fr}}
 </style>
-</head>
-<body>
-<main class="page">
+</head><body>
 
-  <div class="brand-row">
-    <svg class="mark" viewBox="0 0 100 100" aria-label="J"><text x="62" y="76" text-anchor="end" font-size="66">J</text><rect x="65" y="24" width="5" height="64"/></svg>
-    <span class="brand-name">Julau Conseil</span>
+<header class="nav"><div class="wrap ni">
+<a href="#" class="logo"><svg class="lm" viewBox="0 0 100 100" aria-label="J"><text x="62" y="76" text-anchor="end" font-size="66">J</text><rect x="65" y="24" width="5" height="64"/></svg>Julau Conseil</a>
+<nav class="nl"><a href="#services" class="hs">01 Services</a><a href="#fond" class="hs">02 Contexte</a><a href="#qui" class="hs">03 Qui</a>
+<button class="tglt" id="themeToggle" aria-label="Basculer entre thème clair et sombre" title="Basculer thème">
+  <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+  <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button>
+<a href="https://agenticos-lab.tail023ea2.ts.net/bgagne/premier-contact" class="btn b1" rel="noopener">15 minutes <svg class="ar" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div class="h-meta v13-rv"><span>IA</span><span class="s"></span><span>Automatisation des processus</span><span class="s"></span><span>PME du Québec</span></div>
+  <h1 class="ht v13-rv d1">Le savoir de votre entreprise, <span class="em">mis au travail.</span></h1>
+<p class="hs v13-rv d2">Nous tirons du vrai travail de l'IA pour les PME du Québec : des processus automatisés, des outils branchés sur vos systèmes et qui connaissent votre entreprise, et tout cela avec vos données qui restent sous votre contrôle.</p>
+  <div class="hc v13-rv d3">
+    <a href="https://agenticos-lab.tail023ea2.ts.net/bgagne/premier-contact" class="btn b1 rouille" rel="noopener">Réserver 15 minutes <svg class="ar" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    <div class="dispo"><b>Gratuit, sans engagement.</b><br>Mardis et jeudis, 9 h à 17 h · confirmation par courriel</div>
   </div>
+</div></section>
 
-  <div class="kick">IA · Automatisation des processus · PME du Québec</div>
-
-  <h1>Le savoir de votre entreprise, <span class="em">mis au travail</span>.</h1>
-  <p class="lead">Nous aidons les PME du Québec à tirer du vrai travail de l'IA : des processus automatisés, des outils qui connaissent votre entreprise, et vos données qui restent chez vous.</p>
-
-  <div class="tiles" aria-label="Services">
-    <div class="tile"><svg viewBox="0 0 24 24"><path d="M4 16a8 8 0 0 1 16 0"/><path d="M12 16l4-6"/></svg><span class="lb">Audit des processus</span></div>
-    <div class="tile"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12"/><path d="M8 20h8M12 16v4"/></svg><span class="lb">Formation IA</span></div>
-    <div class="tile"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg><span class="lb">Outils connectés</span></div>
-    <div class="tile"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M17.5 14v7M14 17.5h7"/></svg><span class="lb">Modules ERP</span></div>
-    <div class="tile"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><span class="lb">Mémoire d'entreprise</span></div>
-    <div class="tile"><svg viewBox="0 0 24 24"><path d="M12 21s7-3.5 7-9V6l-7-3-7 3v6c0 5.5 7 9 7 9z"/></svg><span class="lb">Conforme à la Loi 25</span></div>
+<section class="plein" id="services"><div class="wrap">
+  <div class="v13-rv"><div class="sn">01 · Nos services</div>
+  <h2 class="st">Nos <span class="em">services.</span></h2></div>
+  <div class="sept">
+    <div class="sv v13-rv d1"><div class="tete"><div class="ib"><svg viewBox="0 0 24 24"><path d="M4 16a8 8 0 0 1 16 0"/><path d="M12 16l4-6"/></svg></div><h3>Audit des processus</h3></div>
+      <ul><li>L'<span class="em">usage actuel de l'IA</span> dans vos équipes</li><li>Tâches répétitives, temps perdu, au bureau comme en usine</li></ul></div>
+    <div class="sv v13-rv d2"><div class="tete"><div class="ib"><svg viewBox="0 0 24 24"><path d="M12 3v4M5 8l3 3M19 8l-3 3M4 20h16M7 20a5 5 0 0 1 10 0"/></svg></div><h3>Automatisation des processus</h3></div>
+      <ul><li>L’étape d’après : automatisation ou amélioration de l’efficacité des flux relevés à l’audit avec <span class="em">des outils sur mesure</span>, ou formation et éducation sur les outils IA disponibles sur le marché</li></ul></div>
+    <div class="sv v13-rv d3"><div class="tete"><div class="ib"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12"/><path d="M8 20h8M12 16v4"/></svg></div><h3>Formation IA</h3></div>
+      <ul><li>Accompagnement de vos équipes à la <span class="em">maîtrise des outils IA</span></li></ul></div>
+    <div class="sv v13-rv d4"><div class="tete"><div class="ib"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></div><h3>Outils connectés</h3></div>
+      <ul><li>De l'intelligence <span class="em">branchée sur vos outils existants</span></li><li>Aucun système remplacé</li><li>Automatiser ou simplifier des tâches là où vous travaillez déjà</li></ul></div>
+    <div class="sv v13-rv d1"><div class="tete"><div class="ib"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M17.5 14v7M14 17.5h7"/></svg></div><h3>Modules ERP</h3></div>
+      <ul><li>Modules sur mesure branchés sur votre ERP (<span class="em">Odoo et Zoho</span> en particulier)</li></ul></div>
+    <div class="sv v13-rv d2"><div class="tete"><div class="ib"><svg viewBox="0 0 24 24"><path d="M12 21s7-3.5 7-9V6l-7-3-7 3v6c0 5.5 7 9 7 9z"/></svg></div><h3>Conforme à la Loi 25</h3></div>
+      <ul><li>Hébergement <span class="em">local ou canadien</span> si nécessaire</li><li>Chaque envoi vers un outil externe convenu avec vous et documenté</li></ul></div>
+    <div class="sv v13-rv d3"><div class="tete"><div class="ib"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M7.5 7.5l3 8M16.5 7.5l-3 8M8 6h8"/></svg></div><h3>Coordination de production</h3></div>
+      <ul><li>Outil de coordination d'usine sur mesure permettant <span class="em">l'optimisation de la productivité</span></li></ul></div>
+    <div class="sv v13-rv d4"><div class="tete"><div class="ib"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg></div><h3>Mémoire d'entreprise</h3></div><ul><li>Ce que votre entreprise sait, rendu utilisable par des outils d’IA <span class="em">qui vous connaissent</span></li></ul></div>
   </div>
+</div></section>
 
-  <section class="who hooks">
-    <div class="nm">Benoit Gagné, ing.</div>
-    <div class="rl"><b>Président</b> · ingénieur mécanique</div>
-    <div class="rl">Optimisation d'usine depuis 2008</div>
-  </section>
-
-  <a class="cta" href="mailto:bgagne@julau.ai">Parlons de votre entreprise</a>
-  <div class="contact">
-    <a href="mailto:bgagne@julau.ai">bgagne@julau.ai</a> · <a href="tel:+15142090384">514 209-0384</a><br>
-    <a href="https://julau.ai">julau.ai</a> · Beloeil (Québec)
+<section class="prf" id="fond"><div class="wrap">
+  <div class="v13-rv"><div class="sn">02 · Contexte</div><h2 class="st">Le contexte de votre entreprise, <span class="em">capturé, structuré, connecté.</span></h2></div>
+  <div class="lt v13-rv d1">
+    <p>Capturer le contexte éparpillé dans votre entreprise (ce qui dort dans vos fichiers et dans les têtes de vos employés, comme ce qui passe chaque jour en réunion et par courriel) et le structurer en mémoire d’entreprise pour vos outils IA.</p>
+    <p>Ce contexte riche transforme les outils d'IA standards en outils qui connaissent l'entreprise en profondeur, et qui font toute la différence dans le résultat et l'aide qu'ils peuvent vous apporter.</p>
   </div>
+</div></section>
 
-  <div class="foot">Julau Conseil inc. · julau.ai</div>
-</main>
+<section id="qui"><div class="wrap">
+  <div class="v13-rv"><div class="sn">03 · Qui</div><h2 class="st">Benoit <span class="em">Gagné.</span></h2></div>
+  <div class="f v13-rv d1" style="margin-top:32px">
+    <div class="fp rond"><img src="portrait-rond-large-480.webp" alt="Benoit Gagné, ingénieur, président de Julau Conseil" width="180" height="180" loading="lazy"></div>
+    <div><h3 class="fn">Benoit Gagné, ing.</h3><div class="fr">Président · Julau Conseil inc. · Beloeil (Québec)</div>
+      <p class="fb">Ingénieur mécanique en optimisation d'usine depuis 2008 : <span class="em">conception créative de machines sur mesure</span>, optimisation des procédés, automatisation des machines.</p>
+      <p class="fb">J'aide aujourd'hui les PME du Québec à tirer du vrai travail de l'IA.</p></div>
+  </div>
+</div></section>
+
+<section class="cf" id="reserver"><div class="wrap">
+  <div class="v13-rv"><div class="sn">04 · Réserver</div>
+  <h2>Réserver 15 minutes <span class="em">avec Benoit.</span></h2>
+  <p class="ld">Prenons un 15 minutes ensemble pour discuter du potentiel de votre entreprise et déterminer les meilleures prochaines étapes d'avancement ensemble. Vous savez pas par où commencer dans l'AI, c'est ici.</p></div>
+  <div class="hc v13-rv d1">
+    <a href="https://agenticos-lab.tail023ea2.ts.net/bgagne/premier-contact" class="btn b1 rouille" rel="noopener">Réserver 15 minutes <svg class="ar" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    <div class="dispo"><b>En visioconférence, sans frais.</b><br>Vous recevez la confirmation par courriel.</div>
+  </div>
+  <p class="autre v13-rv d2">Vous préférez écrire ? <a href="mailto:bgagne@julau.ai?subject=Premier%20contact%20%C2%B7%2015%20minutes">bgagne@julau.ai</a></p>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="fgt">
+    <div><div class="logo"><svg class="lm" viewBox="0 0 100 100" aria-label="J"><text x="62" y="76" text-anchor="end" font-size="66">J</text><rect x="65" y="24" width="5" height="64"/></svg>Julau Conseil</div><p>Ingénierie et IA, Beloeil (Québec).</p></div>
+    <div><h4>La page</h4><ul><li><a href="#services">Services</a></li><li><a href="#qui">Qui</a></li><li><a href="#fond">Contexte</a></li><li><a href="https://agenticos-lab.tail023ea2.ts.net/bgagne/premier-contact" rel="noopener">15 minutes avec Benoit</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li><a href="mailto:bgagne@julau.ai">bgagne@julau.ai</a></li><li><a href="tel:+15142090384">514 209-0384</a></li><li>Beloeil (Québec)</li></ul></div>
+  </div>
+  <div class="fb2"><div>© 2026 Julau Conseil inc.</div><div>Fait au Québec</div></div>
+</div></footer>
+
+<script src="v13-anim.js"></script>
+<script src="site.js"></script>
 </body></html>
