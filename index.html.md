@@ -1,7 +1,7 @@
 # Julau Conseil · IA et automatisation des processus
 
 Source : `index.html` (v13, publiée le 16 sept. 2026). Miroir du contenu statique, généré depuis le HTML.
-SHA-256 source : `8f5e7859511705968ac65e35887ca813311c030a9ede40c416ed3105b521b19b`.
+SHA-256 source : `cdeb0f7fbab6aabf990dc193b83030063766edca88948ee596c06799050253af`.
 
 ## Le savoir dormant de votre entreprise, *mis au travail.*
 
@@ -48,6 +48,8 @@ Gratuit, sans engagement. Mardis et jeudis, 9 h à 17 h · confirmation par cour
 ### Coordination de production
 
 - Outil de coordination d'usine sur mesure permettant *l'optimisation de la productivité*
+
+- *Faire parler l’usine* : vos données d’automates et de SCADA, reliées à votre mémoire d’entreprise
 
 ### Mémoire d'entreprise
 

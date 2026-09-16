@@ -1,7 +1,7 @@
 # Julau Conseil · AI and process automation
 
 Source : `en/index.html` (English version of v13, published Sept. 16, 2026). Static-content mirror, generated from the HTML.
-SHA-256 source : `517880310450b7623e7f76826db4e7632591a88d6f09bd9d03732dddf6e8788f`.
+SHA-256 source : `5f0d0f10733d6ef06b37ef51e773a0eb14e0c80dd9083dfab031b9a36a94e22d`.
 
 ## Your company's sleeping knowledge, *put to work.*
 
@@ -48,6 +48,8 @@ Free, no commitment. Tuesdays and Thursdays, 9 a.m. to 5 p.m. · confirmation by
 ### Production coordination
 
 - Custom plant coordination tool to *optimize productivity*
+
+- *Make the plant talk*: your PLC and SCADA data, connected to your company memory
 
 ### Company memory
 
