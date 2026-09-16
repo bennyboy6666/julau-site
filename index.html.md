@@ -1,9 +1,9 @@
 # Julau Conseil · IA et automatisation des processus
 
 Source : `index.html` (v13, publiée le 16 sept. 2026). Miroir du contenu statique, généré depuis le HTML.
-SHA-256 source : `200e6dbcb2d42a3b4318eb54ce61437b0e81165f61092bd0a377450fe0487703`.
+SHA-256 source : `8f5e7859511705968ac65e35887ca813311c030a9ede40c416ed3105b521b19b`.
 
-## Le savoir de votre entreprise, *mis au travail.*
+## Le savoir dormant de votre entreprise, *mis au travail.*
 
 Nous tirons du vrai travail de l'IA pour les PME du Québec : des processus automatisés, des outils branchés sur vos systèmes et qui connaissent votre entreprise, et tout cela avec vos données qui restent sous votre contrôle.
 
