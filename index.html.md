@@ -1,7 +1,7 @@
 # Julau Conseil · IA et automatisation des processus
 
-Source : `index.html` (v13, la version simple, publiée le 16 sept. 2026). Miroir du contenu statique, généré depuis le HTML.
-SHA-256 source : `3997af000e0d35bd8a46b168824158861495798eb079b93ac73e4e21b3459fb4`.
+Source : `index.html` (v13, publiée le 16 sept. 2026). Miroir du contenu statique, généré depuis le HTML.
+SHA-256 source : `200e6dbcb2d42a3b4318eb54ce61437b0e81165f61092bd0a377450fe0487703`.
 
 ## Le savoir de votre entreprise, *mis au travail.*
 
@@ -99,4 +99,4 @@ Ingénierie et IA, Beloeil (Québec).
 
 - Beloeil (Québec)
 
-Bouton « Réserver 15 minutes » : https://agenticos-lab.tail023ea2.ts.net/bgagne/premier-contact
+Bouton / button : https://agenticos-lab.tail023ea2.ts.net/bgagne/premier-contact
