@@ -1,7 +1,7 @@
 # Julau Conseil · IA et automatisation des processus
 
 Source : `index.html` (v13, la version simple, publiée le 16 sept. 2026). Miroir du contenu statique, généré depuis le HTML.
-SHA-256 source : `5cbb4c399ff9286ff47c96ff8a25359d681e4f6d5be12205997bd80d408dca02`.
+SHA-256 source : `3997af000e0d35bd8a46b168824158861495798eb079b93ac73e4e21b3459fb4`.
 
 ## Le savoir de votre entreprise, *mis au travail.*
 
@@ -79,7 +79,7 @@ J'aide aujourd'hui les PME du Québec à tirer du vrai travail de l'IA.
 
 Prenons un 15 minutes ensemble pour discuter du potentiel de votre entreprise et déterminer les meilleures prochaines étapes d'avancement ensemble. Vous savez pas par où commencer dans l'AI, c'est ici.
 
-En téléphone, sans frais. Vous recevez la confirmation par courriel.
+Par téléphone, Benoit vous appelle. Sans frais. Vous recevez la confirmation par courriel.
 
 Vous préférez écrire ? bgagne@julau.ai
 
