@@ -1,9 +1,9 @@
 # Julau Conseil · AI and process automation
 
 Source : `en/index.html` (English version of v13, published Sept. 16, 2026). Static-content mirror, generated from the HTML.
-SHA-256 source : `a37ccc0d922e42e81372be3e6a41a14b47be0dab7aea93b065edd62e42fc8b23`.
+SHA-256 source : `517880310450b7623e7f76826db4e7632591a88d6f09bd9d03732dddf6e8788f`.
 
-## Your company's dormant knowledge, *put to work.*
+## Your company's sleeping knowledge, *put to work.*
 
 We get real work out of AI for Quebec SMEs: automated processes, tools connected to your systems that know your company, and all of it with your data staying under your control.
 
