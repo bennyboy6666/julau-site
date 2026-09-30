@@ -71,7 +71,7 @@ This rich context turns standard AI tools into tools that know the company in de
 
 President · Julau Conseil inc. · Beloeil, Quebec
 
-Mechanical engineer in plant optimization since 2008: *creative design of custom machines*, process optimization, machine automation.
+Mechanical engineer in plant optimization from 2008 to 2026: *creative design of custom machines*, process optimization, machine automation.
 
 Today I help Quebec SMEs get real work out of AI.
 

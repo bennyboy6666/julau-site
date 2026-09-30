@@ -71,7 +71,7 @@ Ce contexte riche transforme les outils d'IA standards en outils qui connaissent
 
 Président · Julau Conseil inc. · Beloeil (Québec)
 
-Ingénieur mécanique en optimisation d'usine depuis 2008 : *conception créative de machines sur mesure*, optimisation des procédés, automatisation des machines.
+Ingénieur mécanique en optimisation d'usine de 2008 à 2026 : *conception créative de machines sur mesure*, optimisation des procédés, automatisation des machines.
 
 J'aide aujourd'hui les PME du Québec à tirer du vrai travail de l'IA.
 
